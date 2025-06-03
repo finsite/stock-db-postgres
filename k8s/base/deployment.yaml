@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-db-postgres
+  labels:
+    app: stock-db-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-db-postgres
+  template:
+    metadata:
+      labels:
+        app: stock-db-postgres
+    spec:
+      containers:
+      - name: stock-db-postgres
+        image: stock-db-postgres:latest
+        ports:
+        - containerPort: 8080

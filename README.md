@@ -1,4 +1,4 @@
-# 🧱 template_python
+# 🧱 stock-db-postgres
 
 ## Overview
 

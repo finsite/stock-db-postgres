@@ -1,8 +1,8 @@
 ---
-site_name: Template Python
-site_description: Documentation for the Template Python Project
+site_name: Stock Db Postgres
+site_description: Documentation for the Stock Db Postgres Project
 site_author: Mark Quinn
-repo_url: https://github.com/finsite/template_python
+repo_url: https://github.com/finsite/stock-db-postgres
 theme:
   name: material
 nav:
