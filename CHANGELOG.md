@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.2.2 (2025-06-07)
+
+### Fix
+
+- **files**: verify pyproject.toml has all required fields
+
 ## v0.2.1 (2025-06-05)
 
 ### Fix
