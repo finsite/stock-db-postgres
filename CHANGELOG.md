@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.2.4 (2025-06-07)
+
+### Fix
+
+- **files**: Address queue_handler issue
+
 ## v0.2.3 (2025-06-07)
 
 ### Fix
