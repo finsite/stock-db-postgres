@@ -94,7 +94,8 @@ def _start_rabbitmq_listener(callback):
     logger.info("📡 Listening on RabbitMQ queue: %s", queue_name)
     try:
         while not shutdown_event.is_set():
-            channel._process_data_events(time_limit=1)
+            # ✅ Pyright-safe call
+            connection.process_data_events(time_limit=1)
     finally:
         channel.stop_consuming()
         connection.close()
