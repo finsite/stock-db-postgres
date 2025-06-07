@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.2.3 (2025-06-07)
+
+### Fix
+
+- **files**: Initial Stock-db Repository buildout
+
 ## v0.2.2 (2025-06-07)
 
 ### Fix
