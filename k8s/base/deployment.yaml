@@ -16,7 +16,7 @@ spec:
         app: stock-db-postgres
     spec:
       containers:
-      - name: stock-db-postgres
-        image: stock-db-postgres:latest
-        ports:
-        - containerPort: 8080
+        - name: stock-db-postgres
+          image: stock-db-postgres:latest
+          ports:
+            - containerPort: 8080
