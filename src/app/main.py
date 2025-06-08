@@ -7,7 +7,7 @@ from app.config import (
     get_poller_name,
     get_polling_interval,
 )
-from app.logger import setup_logger
+from app.utils.setup_logger import setup_logger
 from app.queue_handler import consume_messages
 
 # Import your database write function
