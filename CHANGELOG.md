@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.2.6 (2025-06-08)
+
+### Fix
+
+- **types**: resolve all Pyright issues and sync output handler signature
+
 ## v0.2.5 (2025-06-08)
 
 ### Fix
