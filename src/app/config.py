@@ -5,7 +5,6 @@ Vault, environment variables, or defaults — in that order.
 """
 
 import os
-from typing import Optional
 
 from app.utils.vault_client import VaultClient
 
@@ -13,7 +12,7 @@ from app.utils.vault_client import VaultClient
 _vault = VaultClient()
 
 
-def get_config_value(key: str, default: Optional[str] = None) -> str:
+def get_config_value(key: str, default: str | None = None) -> str:
     """Retrieve a configuration value from Vault, environment variable, or default.
 
     Args:
@@ -25,6 +24,7 @@ def get_config_value(key: str, default: Optional[str] = None) -> str:
 
     Raises:
         ValueError: If the key is missing and no default is provided.
+
     """
     val = _vault.get(key, os.getenv(key))
     if val is None:
@@ -38,6 +38,7 @@ def get_config_value(key: str, default: Optional[str] = None) -> str:
 # 🌍 General Environment
 # ------------------------------------------------------------------------------
 
+
 def get_environment() -> str:
     """Return the current runtime environment (e.g., 'dev', 'prod')."""
     return get_config_value("ENVIRONMENT", "dev")
@@ -48,10 +49,10 @@ def get_poller_name() -> str:
     return get_config_value("POLLER_NAME", "stock_tech_ichimoku")
 
 
-
 # ------------------------------------------------------------------------------
 # 🔁 Polling and Runtime Behavior
 # ------------------------------------------------------------------------------
+
 
 def get_polling_interval() -> int:
     """Polling interval in seconds between data fetch cycles."""
@@ -77,6 +78,7 @@ def get_output_mode() -> str:
 # 📬 Queue Type
 # ------------------------------------------------------------------------------
 
+
 def get_queue_type() -> str:
     """Queue system in use: 'rabbitmq' or 'sqs'."""
     return get_config_value("QUEUE_TYPE", "rabbitmq")
@@ -85,6 +87,7 @@ def get_queue_type() -> str:
 # ------------------------------------------------------------------------------
 # 🐇 RabbitMQ Configuration
 # ------------------------------------------------------------------------------
+
 
 def get_rabbitmq_host() -> str:
     """Hostname of the RabbitMQ broker."""
@@ -129,16 +132,15 @@ def get_rabbitmq_queue() -> str:
     return get_config_value("RABBITMQ_QUEUE", "stock_tech_ichimoku_queue")
 
 
-
 def get_dlq_name() -> str:
     """Dead-letter queue name."""
     return get_config_value("DLQ_NAME", "stock_tech_ichimoku_dlq")
 
 
-
 # ------------------------------------------------------------------------------
 # 📦 Amazon SQS Configuration
 # ------------------------------------------------------------------------------
+
 
 def get_sqs_queue_url() -> str:
     """Full URL of the SQS queue."""
@@ -149,31 +151,42 @@ def get_sqs_region() -> str:
     """AWS region of the SQS queue."""
     return get_config_value("SQS_REGION", "us-east-1")
 
+
 # ---------------------------------------------------------------------------
 # 🐘 PostgreSQL Configuration
 # ---------------------------------------------------------------------------
 
+
 def get_postgres_host() -> str:
     return get_config_value("POSTGRES_HOST", "localhost")
+
 
 def get_postgres_port() -> int:
     return int(get_config_value("POSTGRES_PORT", "5432"))
 
+
 def get_postgres_user() -> str:
     return get_config_value("POSTGRES_USER", "postgres")
+
 
 def get_postgres_password() -> str:
     return get_config_value("POSTGRES_PASSWORD", "postgres")
 
+
 def get_postgres_db() -> str:
     return get_config_value("POSTGRES_DB", "stock_data")
+
 
 def get_postgres_table() -> str:
     return get_config_value("POSTGRES_TABLE", "raw_data")
 
+
 def get_postgres_dsn() -> str:
     """Returns full DSN string for PostgreSQL connection."""
-    return get_config_value("POSTGRES_DSN", "dbname=stockdb user=postgres password=secret host=localhost port=5432")
+    return get_config_value(
+        "POSTGRES_DSN", "dbname=stockdb user=postgres password=secret host=localhost port=5432"
+    )
+
 
 def get_flush_timeout() -> int:
     """Maximum time in seconds to wait before flushing partial batches."""

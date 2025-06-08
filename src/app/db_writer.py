@@ -1,15 +1,13 @@
 """Writes processed analysis data to PostgreSQL with batching and retries."""
 
 from typing import Any
+
 import psycopg2
 from psycopg2.extras import Json, execute_batch
 from psycopg2.pool import ThreadedConnectionPool
-from tenacity import retry, wait_fixed, stop_after_attempt, retry_if_exception_type
+from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
 
-from app.config import (
-    get_postgres_dsn,
-    get_postgres_table,
-)
+from app.config import get_postgres_dsn, get_postgres_table
 from app.utils.setup_logger import setup_logger
 
 logger = setup_logger(__name__)
@@ -48,10 +46,10 @@ def write_batch_to_postgres(data_batch: list[dict[str, Any]]) -> None:
         conn = _get_connection()
         cur = conn.cursor()
 
-        insert_query = f'''
+        insert_query = f"""
             INSERT INTO {get_postgres_table()} (symbol, source, timestamp, data)
             VALUES (%s, %s, %s, %s)
-        '''
+        """
 
         records = [
             (
