@@ -184,7 +184,8 @@ def get_postgres_table() -> str:
 def get_postgres_dsn() -> str:
     """Returns full DSN string for PostgreSQL connection."""
     return get_config_value(
-        "POSTGRES_DSN", "dbname=stockdb user=postgres password=secret host=localhost port=5432"
+        "POSTGRES_DSN",
+        "dbname=stockdb user=postgres password=secret host=localhost port=5432",
     )
 
 
