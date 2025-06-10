@@ -1,7 +1,7 @@
 # Stock Data Writer (Database)
 
-This repository receives processed or raw stock data via a queue and writes it to a durable database
-backend such as PostgreSQL or InfluxDB.
+This repository receives processed or raw stock data via a queue and writes it
+to a durable database backend such as PostgreSQL or InfluxDB.
 
 ## Features
 
