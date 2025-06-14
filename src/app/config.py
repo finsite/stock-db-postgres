@@ -17,6 +17,7 @@ def get_dlq_name() -> str:
     """Return the Dead Letter Queue (DLQ) name for this poller."""
     return get_config_value("DLQ_NAME", "stock_db_postgres_dlq")
 
+
 def get_postgres_dsn() -> str:
     """Return the Postgres DSN (Data Source Name)."""
     return get_config_value("POSTGRES_DSN", "postgresql://user:pass@localhost:5432/mydb")
