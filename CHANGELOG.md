@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.2.9 (2025-06-14)
+
+### Refactor
+
+- standardize config, vault client, and test structure across all repos
+
 ## v0.2.8 (2025-06-13)
 
 ### Refactor
