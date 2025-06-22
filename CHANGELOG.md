@@ -7,6 +7,12 @@
 - Initial project structure cloned from `template_python`
 - Custom configuration and module setup for `stock-db-postgres`
 
+## v0.3.0 (2025-06-22)
+
+### Feat
+
+- **utils**: finalize shared utility modules and tests
+
 ## v0.2.10 (2025-06-15)
 
 ### Refactor
